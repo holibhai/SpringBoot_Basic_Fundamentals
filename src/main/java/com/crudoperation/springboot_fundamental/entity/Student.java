@@ -1,12 +1,12 @@
 package com.crudoperation.springboot_fundamental.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -21,6 +21,21 @@ public class Student {
     private String name;
     private int age;
     private String email;
+
+
+    @ManyToOne
+    @JoinColumn(name="department_id")
+    private Department department;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "student_project",
+            joinColumns = @JoinColumn(name="student_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id")
+    )
+
+    private Set<Project> project=new HashSet<>();
 
     public Student(int id, String name, int age, String email) {
         this.id = id;
