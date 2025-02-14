@@ -37,14 +37,18 @@ public class Student {
 
     private Set<Project> project=new HashSet<>();
 
-    public Student(int id, String name, int age, String email) {
+    public Student(int id, String name, int age, String email, Department department, Set<Project> project) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
+        this.department = department;
+        this.project = project;
     }
-    public Student(){}
 
+    public Student() {
+
+    }
 
     public int getId() {
         return id;
@@ -76,5 +80,21 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Set<Project> getProject() {
+        return project;
+    }
+
+    public void setProject(Set<Project> project) {
+        this.project = project;
     }
 }
