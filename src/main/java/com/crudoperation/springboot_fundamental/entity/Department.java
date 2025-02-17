@@ -6,8 +6,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Setter
-@Getter
+
 @Entity
 public class Department {
 
@@ -30,4 +29,27 @@ public class Department {
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Student> getStudent() {
+        return student;
+    }
+
+    public void setStudent(List<Student> student) {
+        this.student = student;
+    }
 }
